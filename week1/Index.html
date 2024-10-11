@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgb(51, 0, 50);
+            text-align: right;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: rgb(51, 0, 50);
+            text-align: center;
+            padding: 10px; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button>Logout</button>
+        </header>
+
+        <aside>
+            <h2>Admin Panel</h2>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-user-graduate"></i> Mahasiswa</a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i> Setting</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="content">
+            <h2>Daftar Mahasiswa</h2>
+            <button>Tambah Mahasiswa</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No:</th>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>A11.2022.12345</td>
+                        <td>Chie</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>A11.2022.12346</td>
+                        <td>Mikasaa</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>A11.2022.19876</td>
+                        <td>Rawrrr</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            &copy; 2024.Chie'sCode
+        </footer>
+    </div>
+</body>
+</html>
