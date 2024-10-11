@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -212,3 +213,208 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-indigo-900 text-white">
+            <div class="p-4">
+                <h1 class="text-2xl font-bold">Admin Panel</h1>
+                <nav class="py-2 px-4 mt-4">
+                    <ul>
+                        <li class="py-2 px-4 hover:bg-indigo-700 rounded">
+                            <a href="#">Dashboard</a>
+                        </li>
+                        <li class="py-2 px-4 hover:bg-indigo-700 rounded">
+                            <a href="#">Mahasiswa</a>
+                        </li>
+                        <li class="py-2 px-4 hover:bg-indigo-700 rounded">
+                            <a href="#">Settings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white p-4 flex justify-end">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">Logout</button>
+            </header>
+
+            <div class="flex justify-between mb-4 p-4">
+                <h2 class="text-xl font-semibold">List Mahasiswa</h2>
+                <button id="btn-tambah" class="bg-green-500 text-white px-4 py-2 rounded">Tambah</button>
+            </div>
+
+            <main class="flex-grow p-4 bg-blue-50">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <table class="min-w-full table-auto">
+                        <thead>
+                            <tr class="bg-gray-300">
+                                <th class="px-4 py-2">No</th>
+                                <th class="px-4 py-2">NIM</th>
+                                <th class="px-4 py-2">Nama</th>
+                                <th class="px-4 py-2">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mahasiswa-tbody">
+                            <tr>
+                                <td class="border px-4 py-2">1</td>
+                                <td class="border px-4 py-2">A11.2022.14788</td>
+                                <td class="border px-4 py-2">Chie</td>
+                                <td class="px-4 py-2">
+                                    <button id="btn-edit-1" class="bg-yellow-500 text-white px-4 py-2 rounded btn-edit">Edit</button>
+                                    <button id="btn-delete-1" class="bg-red-500 text-white px-4 py-2 rounded btn-delete">Hapus</button>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-100">
+                                <td class="border px-4 py-2">2</td>
+                                <td class="border px-4 py-2">A11.2020.47123</td>
+                                <td class="border px-4 py-2">Mikasaa</td>
+                                <td class="px-4 py-2">
+                                    <button id="btn-edit-2" class="bg-yellow-500 text-white px-4 py-2 rounded btn-edit">Edit</button>
+                                    <button id="btn-delete-2" class="bg-red-500 text-white px-4 py-2 rounded btn-delete">Hapus</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">3</td>
+                                <td class="border px-4 py-2">A11.2021.58679</td>
+                                <td class="border px-4 py-2">Gremoryyy</td>
+                                <td class="px-4 py-2">
+                                    <button id="btn-edit-3" class="bg-yellow-500 text-white px-4 py-2 rounded btn-edit">Edit</button>
+                                    <button id="btn-delete-3" class="bg-red-500 text-white px-4 py-2 rounded btn-delete">Hapus</button>
+                                </td>                            
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+
+            <footer class="bg-indigo-900 text-white p-4 text-center">
+                &copy; Admin Kocag;
+            </footer>
+        </div>            
+    </div>
+
+    <div id="tambah-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-1/2">
+            <div class="p-4">
+                <h3 class="text-lg font-semibold mb-2">Tambah Mahasiswa</h3>
+                <form id="form-tambah-mahasiswa">
+                    <div class="mb-4">
+                        <label class="block text-gray-700">NIM</label>
+                        <input type="text" id="nim" class="w-full px-3 py-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Nama</label>
+                        <input type="text" id="nama" class="w-full px-3 py-2 border rounded" required>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" id="cancel-tambah" class="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2">Batal</button>
+                        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(document).ready(function(){
+            function handleDelete() {
+                $('.btn-delete').off('click').on('click', function(){
+                    var row = $(this).closest('tr');
+                    var nim = row.find('td:nth-child(2)').text();
+                    
+                    Swal.fire({
+                        title: 'Konfirmasi Hapus',
+                        text: "NIM " + nim + " Jadi dihapus ga nieh? Data yang dihapus tidak dapat dikembalikan kiing.",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Hapus',
+                        cancelButtonText: 'Batal',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            row.remove();
+                            Swal.fire('Donz bosku', 'Gabisa dipulihkan ea', 'success');
+                        }
+                    });
+                });
+            }
+
+            function handleEdit() {
+                $('.btn-edit').off('click').on('click', function(){
+                    var row = $(this).closest('tr');
+                    var nim = row.find('td:nth-child(2)').text();
+                    var nama = row.find('td:nth-child(3)').text();
+                    
+                    Swal.fire({
+                        title: 'Edit Mahasiswa',
+                        html: `<input id="edit-nim" class="swal2-input" value="${nim}">
+                               <input id="edit-nama" class="swal2-input" value="${nama}">`,
+                        focusConfirm: false,
+                        preConfirm: () => {
+                            return [
+                                $('#edit-nim').val(),
+                                $('#edit-nama').val()
+                            ];
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            row.find('td:nth-child(2)').text(result.value[0]);
+                            row.find('td:nth-child(3)').text(result.value[1]);
+                            Swal.fire('Diperbarui!', 'Data mahasiswa telah diperbarui.', 'success');
+                        }
+                    });
+                });
+            }
+
+            handleDelete();
+            handleEdit();
+
+            $('#btn-tambah').click(function(){
+                $('#tambah-modal').removeClass('hidden');
+            });
+
+            $('#cancel-tambah').click(function(){
+                $('#tambah-modal').addClass('hidden');
+            });
+
+            $('#form-tambah-mahasiswa').on('submit', function(event){
+                event.preventDefault();
+                var nim = $('#nim').val();
+                var nama = $('#nama').val();
+                var rowCount = $('#mahasiswa-tbody tr').length + 1;
+
+                $('#mahasiswa-tbody').append(`
+                    <tr>
+                        <td class="border px-4 py-2">${rowCount}</td>
+                        <td class="border px-4 py-2">${nim}</td>
+                        <td class="border px-4 py-2">${nama}</td>
+                        <td class="px-4 py-2">
+                            <button id="btn-edit-${rowCount}" class="bg-yellow-500 text-white px-4 py-2 rounded btn-edit">Edit</button>
+                            <button id="btn-delete-${rowCount}" class="bg-red-500 text-white px-4 py-2 rounded btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+                `);
+
+                $('#form-tambah-mahasiswa')[0].reset();
+                $('#tambah-modal').addClass('hidden');
+
+                handleDelete();
+                handleEdit();
+            });
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 4fd745e6b0ac2353563622cf90d3269b54e0f67b
