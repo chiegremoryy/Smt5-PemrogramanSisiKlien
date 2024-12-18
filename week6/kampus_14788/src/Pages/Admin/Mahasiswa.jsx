@@ -6,7 +6,6 @@ function Mahasiswa() {
     { id: 1, nim: 'A11.2022.14788', nama: 'Chie' },
     { id: 2, nim: 'A11.2020.47123', nama: 'Mikasaa' },
     { id: 3, nim: 'A11.2021.58679', nama: 'Gremoryyy' },
-    { id: 4, nim: 'A11.2022.38756', nama: 'About You 1945' },
   ]);
 
   const [isTambahModalOpen, setTambahModalOpen] = useState(false);
