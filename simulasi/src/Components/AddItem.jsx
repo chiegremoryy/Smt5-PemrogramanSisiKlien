@@ -34,7 +34,7 @@ function AddItem({ onAddItem }) {
 
   return (
     <div className="max-w-md mx-auto mt-16 mb-32 p-7">
-      <div className="bg-white shadow-lg rounded-lg p-8">
+      <div className="bg-gray-100 shadow-lg rounded-lg p-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Tambah Barang Baru</h2>
         <form onSubmit={handleAddItem} className="space-y-4">
           <div>

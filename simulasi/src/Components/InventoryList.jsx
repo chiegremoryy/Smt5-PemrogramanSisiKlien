@@ -10,7 +10,7 @@ function InventoryList({ inventoryData }) {
   );
 
   return (
-    <div className="w-full min-h-screen bg-blue-50 flex justify-center items-start pt-12 mt-16">
+    <div className="w-full min-h-screen bg-gray-100 flex justify-center items-start pt-10 mt-16">
       <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg p-8">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Daftar Barang di Gudang</h2>
 
