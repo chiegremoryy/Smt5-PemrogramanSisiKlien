@@ -4,13 +4,6 @@ import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = sessionStorage.getItem('authToken');
-    if (!token) {
-      navigate('/login');
-    }
-  }, [navigate]);
-
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>

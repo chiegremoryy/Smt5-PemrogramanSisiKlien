@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
+import { login } from '../Redux/AuthSlice';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -9,6 +11,7 @@ const Login = () => {
     password: ''
   });
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,13 +30,14 @@ const Login = () => {
       });
 
       if (response.data.code === 200) {
+        const { user, token } = response.data.data;
+        dispatch(login({ user, token}));
         Swal.fire({
           icon: "success",
           title: "Login berhasil!",
           text: response.data.message
         });
 
-        sessionStorage.setItem('authToken', response.data.token);
         navigate('/admin');
       }
     } catch (error) {

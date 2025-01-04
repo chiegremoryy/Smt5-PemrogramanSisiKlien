@@ -4,6 +4,7 @@ import Register from "./Pages/Auth/Register";
 import AdminLayout from "./Layouts/AdminLayout";
 import Dashboard from "./Pages/Admin/Dashboard";
 import Mahasiswa from "./Pages/Admin/Mahasiswa";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 const RouteList = createBrowserRouter([
     {
@@ -16,7 +17,10 @@ const RouteList = createBrowserRouter([
     },
     {
         path: '/admin',
-        element: <AdminLayout />,
+        element:
+            <ProtectedRoute>
+                <AdminLayout />
+            </ProtectedRoute>,
         children: [
             {
                 index: true,
