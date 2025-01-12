@@ -203,12 +203,12 @@ const NewsDetailPages = () => {
               type="text"
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
-              className="flex-1 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
               placeholder="Tambahkan komentar..."
             />
             <button
               onClick={addComment}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
             >
               Tambah
             </button>
